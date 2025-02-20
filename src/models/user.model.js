@@ -7,7 +7,8 @@ const UserSchema = new mongoose.Schema({
     },
     username: {
         type: String,
-        required: [true, 'El correo del usuario es obligatorio']
+        required: [true, 'El correo del usuario es obligatorio'],
+        unique: true
     },
     discord_username: {
         type: String,

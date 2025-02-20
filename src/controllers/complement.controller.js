@@ -24,6 +24,9 @@ async function getComplements( req, res ) {
 
 async function createComplement( req, res ) {
     const inputData = req.body;
+    const userId = req.authUser.id;
+
+    inputData.userId = userId;
 
     try {
         const data = await dbInsertComplement( inputData );

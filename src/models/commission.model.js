@@ -7,7 +7,8 @@ const CommissionSchema = new mongoose.Schema({
     },
     proyect_name: {
         type: String,
-        required: [true, 'El nombre de la comision es obligatoria']
+        required: [true, 'El nombre de la comision es obligatoria'],
+        unique: true
     },
     description: {
         type: String,
@@ -33,6 +34,10 @@ const CommissionSchema = new mongoose.Schema({
         type: String,
         enum: [ 'cola', 'atendiendo', 'concluido', 'pendiente' ],
         default: 'cola'
+    },
+    userId: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'users'
     }
 },{
     timestamps: true,

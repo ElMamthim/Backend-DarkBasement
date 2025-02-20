@@ -3,7 +3,8 @@ const mongoose = require( 'mongoose' );
 const ComplementSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'El nombre del complemento es obligatorio']
+        required: [true, 'El nombre del complemento es obligatorio'],
+        unique: true
     },
     date: {
         type: Number
@@ -23,8 +24,9 @@ const ComplementSchema = new mongoose.Schema({
         type: String
     },
     state: {
-        type: Boolean,
-        default: true
+        type: String,
+        enum: [ 'completo', 'actualizado', 'desactualizado', 'beta', 'alpha' ],
+        default: 'desarrollo'
     },
     userId: {
         type: mongoose.Schema.ObjectId,

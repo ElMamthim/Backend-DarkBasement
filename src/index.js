@@ -1,10 +1,12 @@
 const express = require( 'express' );
 const dbConection = require('./config/mongo.config.js');
+const cors = require('cors');
 const app = express();
 
 dbConection();           
 
 app.use( express.json() );
+app.use (cors());
 
 app.use( '/api/user', require( './routes/user.routes.js' ));
 app.use( '/api/complement', require( './routes/complement.routes.js' ));

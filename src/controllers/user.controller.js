@@ -7,7 +7,7 @@ async function createUser( req, res ) {
     try {
         const data = await dbInsertUser( inputData );
 
-        res.json({
+        res.status(200).json({
             ok: true,
             data: data
         });    
@@ -25,7 +25,7 @@ async function createUser( req, res ) {
         }
 
         console.error( error );
-        res.json({                  
+        res.status(500).json({                  
             ok: false,
             msg: 'Ha ocurrido una excepcion al registrar un usuario',
         });
@@ -38,14 +38,14 @@ async function getUsers( req, res ) {
     try {
         const data = await dbGetUsers();
 
-        res.json({
+        res.status(200).json({
             ok: true,
             data: data
         });        
     } 
     catch ( error ) {
         console.error( error );
-        res.json({
+        res.status(500).json({
             ok: false,
             msg: 'Ha ocurrido una excepcion al obtener todos los usuarios'
         });
@@ -59,14 +59,14 @@ async function getUserById( req, res ) {
     try {
         const data = await dbGetUserById( id );
 
-        res.json({
+        res.status(200).json({
             ok: true,
             data: data
         });
     } 
     catch ( error ) {
         console.error( error );
-        res.json({                  
+        res.status(500).json({                  
             ok: false,
             msg: 'Ha ocurrido una excepcion al obtener un usuario por ID'
         });
@@ -80,14 +80,14 @@ async function deleteUserById( req, res ) {
     try {
         const data = await dbDeleteUserById( id );
 
-        res.json({
+        res.status(200).json({
             ok: true,
             data: data
         });
     } 
     catch ( error ) {
         console.error( error );
-        res.json({                  
+        res.status(500).json({                  
             ok: false,
             msg: 'Ha ocurrido una excepcion al eliminar una categoria por ID'
         });
@@ -102,14 +102,14 @@ async function updateUserById( req, res ) {
     try {
         const data = await dbUpdateUserById( id, inputData );
 
-        res.json({
+        res.status(200).json({
             ok: true,
             data: data
         });
     } 
     catch ( error ) {
         console.error( error );
-        res.json({                  
+        res.status(500).json({                  
             ok: false,
             msg: 'Ha ocurrido una excepcion al actualizar un usuario por ID'
         });

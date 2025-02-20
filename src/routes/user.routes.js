@@ -3,18 +3,19 @@ const express = require( 'express' );
 const { getUsers, createUser, getUserById, deleteUserById, updateUserById } = require('../controllers/user.controller');
 const validateUserExists = require('../middlewares/validate-user-exists');
 const validateId = require('../middlewares/validate-id.middleware');
+const {validateAuthUser} = require('../middlewares/validate-auth-user-middlewares')
 
 const router = express.Router();
 
-router.get( '/', getUsers );
+router.get( '/', validateAuthUser ,getUsers );
 
-router.post( '/', validateUserExists, createUser );
+router.post( '/', validateUserExists, validateAuthUser, createUser );
 
-router.get( '/:id', validateId ,getUserById );
+router.get( '/:id', validateId, validateAuthUser ,getUserById );
 
-router.delete( '/:id', validateId, deleteUserById );
+router.delete( '/:id', validateId, validateAuthUser, deleteUserById );
 
-router.patch( '/:id', validateId, updateUserById );
+router.patch( '/:id', validateId, validateAuthUser, updateUserById );
 
 
 module.exports = router;

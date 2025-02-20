@@ -2,7 +2,7 @@ const mongoose = require( 'mongoose' );
 
 async function dbConection() {
     try {
-        await mongoose.connect( 'mongodb://localhost:27017/DarkBasementStudio', {} );
+        await mongoose.connect( process.env.DB_URI );
         console.log( 'Se inicio la base de datos correctamente' );
     } 
     catch ( error ) {
