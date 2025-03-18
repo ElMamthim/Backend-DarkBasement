@@ -14,10 +14,6 @@ const CommissionSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Todos los datos recolectados para la realizacion del proyecto']
     },
-    plataform: {
-        type: String,
-        required: [true, 'Es obligatoria la plataforma o tipo de comision que se esta solicitando por le cliente']
-    },
     urlImage: {
         type: String
     },
@@ -38,7 +34,11 @@ const CommissionSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.ObjectId,
         ref: 'users'
-    }
+    },
+    plataform: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'plataform'
+    },
 },{
     timestamps: true,
     versionKey: false

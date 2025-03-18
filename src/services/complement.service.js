@@ -5,7 +5,7 @@ async function dbInsertComplement( newComplement ) {
 }
 
 async function dbGetComplements() {
-    return await ComplementModel.find({}).populate(['category','userId'])
+    return await ComplementModel.find({}).populate(['userId'])
 }
 
 async function dbGetComplementById( id ) {

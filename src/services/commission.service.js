@@ -5,7 +5,7 @@ async function dbInsertCommission( newCommission ) {
 }
 
 async function dbGetCommissions() {
-    return await CommissionModel.find({}).populate(['category','userId'])
+    return await CommissionModel.find({}).populate(['userId'])
 }
 
 async function dbGetCommissionById( id ) {

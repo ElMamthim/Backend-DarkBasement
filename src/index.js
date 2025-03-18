@@ -12,6 +12,7 @@ app.use( '/api/user', require( './routes/user.routes.js' ));
 app.use( '/api/complement', require( './routes/complement.routes.js' ));
 app.use( '/api/auth', require( './routes/auth.routes.js'));
 app.use( '/api/commission', require( './routes/commission.routes.js'));
+app.use( '/api/plataform', require( './routes/plataform.routes.js'));
 
 app.listen( 3000, function() {
     console.log( 'Servidor escuchando en el puerto 3000' );

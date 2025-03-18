@@ -7,7 +7,7 @@ const ComplementSchema = new mongoose.Schema({
         unique: true
     },
     date: {
-        type: Number
+        type: String
     },
     version: {
         type: Number,
@@ -18,15 +18,16 @@ const ComplementSchema = new mongoose.Schema({
         type: String
     },
     plataform: {
-        type: String
+        type: mongoose.Schema.ObjectId,
+        ref: 'plataform'
     },
     urlImage: {
         type: String
     },
     state: {
         type: String,
-        enum: [ 'completo', 'actualizado', 'desactualizado', 'beta', 'alpha' ],
-        default: 'desarrollo'
+        enum: [ 'Completo', 'Actualizado', 'Desactualizado', 'Beta', 'Alpha', 'Desarrollo' ],
+        default: 'Desarrollo'
     },
     userId: {
         type: mongoose.Schema.ObjectId,
