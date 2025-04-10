@@ -2,6 +2,7 @@ const express = require( 'express' );
 const dbConection = require('./config/mongo.config.js');
 const cors = require('cors');
 const app = express();
+const PORT = process.env.PORT??3001
 
 dbConection();           
 
@@ -14,6 +15,6 @@ app.use( '/api/auth', require( './routes/auth.routes.js'));
 app.use( '/api/commission', require( './routes/commission.routes.js'));
 app.use( '/api/plataform', require( './routes/plataform.routes.js'));
 
-app.listen( 3000, function() {
-    console.log( 'Servidor escuchando en el puerto 3000' );
+app.listen( PORT, function() {
+    console.log( `Servidor escuchando en el puerto ${PORT}` );
 });

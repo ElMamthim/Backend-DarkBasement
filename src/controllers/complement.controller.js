@@ -16,7 +16,7 @@ async function getComplements( req, res ) {
         console.error( error );
         res.json({
             ok: false,
-            msg: 'Ocurrio un error al tratar de ver todos los registros de las comisiones'
+            msg: 'Error al tratar de obtener los datos registrados del complemento'
         });
     }
 
@@ -24,9 +24,6 @@ async function getComplements( req, res ) {
 
 async function createComplement( req, res ) {
     const inputData = req.body;
-    const userId = req.authUser.id;
-
-    inputData.userId = userId;
 
     try {
         const data = await dbInsertComplement( inputData );
@@ -43,7 +40,7 @@ async function createComplement( req, res ) {
 
         res.json({                  
             ok: false,
-            msg: 'Ocurrio un error al tratar de registrar los datos',
+            msg: 'Ocurrio un error al tratar de registrar tu peticion porfavor verifica los datos',
             errors: errors
         });
     }
@@ -65,7 +62,7 @@ async function getComplementById( req, res ) {
         console.error( error ); 
         res.json({                  
             ok: false,
-            msg: 'No se pudo identificar el complemento que estas buscando por Id porfavor ingresa otro'
+            msg: 'Ha ocurrido un error al tratar de obtener los datos del complemento, revisa los datos colocados'
         });
     }
     
@@ -86,7 +83,7 @@ async function deleteComplementById( req, res ) {
         console.error( error );
         res.json({                  
             ok: false,
-            msg: 'No se pudo identificar el complemento que estas tratando de eliminar por Id porfavor ingresa otro'
+            msg: 'La peticion que tratas de eliminar no existeo o no es valido, porfavor revisalo la id colocada'
         });
     }
 
@@ -108,7 +105,7 @@ async function updateComplementByIdPatch( req, res ) {
         console.error( error );
         res.json({                  
             ok: false,
-            msg: 'Ocurrio un error al actualizar unos detalles del complemento, porfavor revisalo'
+            msg: 'Ha ocurrido un error al tratar de actualizar los datos'
         });
     }
 

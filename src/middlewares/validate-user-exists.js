@@ -21,7 +21,7 @@ const validateUserExistsByUserName = async (req, res, next) => {
     catch ( error ) {
         console.error( error );
         res.status( 500 ).json({ 
-            ok: false, 
+            ok: false,   
             msg: 'Error al buscar el usuario'
         });
     }

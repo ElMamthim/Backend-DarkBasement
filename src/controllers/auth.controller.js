@@ -1,7 +1,7 @@
 const { verifyEncriptedPassword } = require("../helpers/bcrypt.helper");
 const removePropertiesToObject = require("../helpers/delete-document-properties.helper");
 const { generateToken } = require("../helpers/jwt.helper");
-const { dbGetUserByUsername, dbInsertUser } = require("../services/user.service");
+const { dbGetUserByUsername } = require("../services/user.service");
 
 
 async function loginUser( req, res ) {
