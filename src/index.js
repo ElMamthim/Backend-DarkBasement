@@ -15,6 +15,4 @@ app.use( '/api/auth', require( './routes/auth.routes.js'));
 app.use( '/api/commission', require( './routes/commission.routes.js'));
 app.use( '/api/plataform', require( './routes/plataform.routes.js'));
 
-app.listen( PORT, function() {
-    console.log( `Servidor escuchando en el puerto ${PORT}` );
-});
+module.exports = app
